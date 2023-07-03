@@ -136,7 +136,7 @@ class NotesService {
     // create the note
     final noteId = await db.insert(notesTable, {
       userIdColumn: owner.id,
-      text: text,
+      textColumn: text,
       isSyncedWithCloudColumn: 1,
     });
 
@@ -323,7 +323,7 @@ const createNotesTable = '''CREATE TABLE IF NOT EXISTS "note" (
         "id" INTEGER NOT NULL,
         "user_id" INTEGER NOT NULL,
         "text" TEXT,
-        "is_synced _with_cloud" INTEGER NOT NULL DEFAULT 0,
-        FOREIGN KEY ("user_id") REFERENCES "user' ("id"),
+        "is_synced_with_cloud" INTEGER NOT NULL DEFAULT 0,
+        FOREIGN KEY ("user_id") REFERENCES "user" ("id"),
         PRIMARY KEY ("id" AUTOINCREMENT)
       );''';
